@@ -11,8 +11,8 @@ export const useScrollingStore = defineStore('scrolling', {
     },
     actions: {
         onScroll() {
-            this.offSetTop = window.scrollY;
-            this.isHovering = this.offsetTop > 4 ? false: true;
+            this.offSetTop = window.scrollY; 
+            this.isHovering = this.offsetTop > 6 ? false: true;
           },
         },
         
