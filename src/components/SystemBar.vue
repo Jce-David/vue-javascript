@@ -25,13 +25,13 @@ export default {
         v-if="offSetTop > 4 ? 0 : 2">
         <p style="font-family: 'Montserrat', sans-serif; 
             margin: 0; 
-            font-weight: 500;
+            font-weight: 600;
             font-size: x-small;
             font-style: normal;
             color: #1c1b1b;
             letter-spacing: .2em;
             text-transform: uppercase;"> 
-            ORDERS PLACED AFTER THE 28th OF NOVEMBER WILL NOT BE DISPATCHED UNTIL EARLY JANUARY
+            delivery gratis hasta el 6 de agosto
         </p>
     </v-system-bar>
 </template>

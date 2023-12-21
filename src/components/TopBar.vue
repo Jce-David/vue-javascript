@@ -40,19 +40,19 @@ export default {
         <v-app-bar v-bind="props" :style="{ background: isHovering || isHoveringColor ? 'white' : '#FFFFFF00' }"
             :dark="isHovering" text="white" :elevation="1" height="50" class="transitional-app-bar" >
             <v-container>
-                <v-row class=" text-h5 hidden-sm-and-down">
-                    <p class="pt-2 mr-10 "
+                <v-row class=" text-h5">
+                    <p class="pt-2 "
                         :style="{ color: isHovering || isHoveringColor ? 'black' : 'white', flex: '1', textAlign: 'center' }"
                         style="font-family: 'Montserrat', sans-serif; 
                                     font-weight: 500;
                                     font-style: normal;
                                     font-size: 0.6em;
                                     letter-spacing: 0.5em;
-                                    text-transform: uppercase;"> CONDORI SHEEP </p>
+                                    text-transform: uppercase;"> SHEEP </p>
                                      <v-spacer></v-spacer>
-                         <v-tabs  class="transitional-tabs" >
+                         <v-tabs   class="transitional-tabs" >
                         <RouterLink custom v-slot="{ navigate }" to="/">
-                            <v-tab  @click="navigate" :ripple="false"
+                            <v-tab  class=" hidden-sm-and-down"  @click="navigate" :ripple="false"
                                 :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }">
                                 <p style="font-family: 'Montserrat', sans-serif; 
                                     margin: 0; 
@@ -64,9 +64,9 @@ export default {
                             </v-tab>
                         </RouterLink>
                         <RouterLink custom v-slot="{ navigate }" to="/product">
-                            <v-tab  @click="navigate" :ripple="false"
+                            <v-tab class=" hidden-sm-and-down"  @click="navigate" :ripple="false"
                                 :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }">
-                                <p style="font-family: 'Montserrat', sans-serif; 
+                                <p  style="font-family: 'Montserrat', sans-serif; 
                                     margin: 0; 
                                     font-weight: 500;
                                     font-style: normal;
@@ -76,7 +76,7 @@ export default {
                             </v-tab>
                         </RouterLink>
                         <RouterLink custom v-slot="{ navigate }" to="/account">
-                            <v-tab @click="navigate" :ripple="false"
+                            <v-tab  class=" hidden-sm-and-down" @click="navigate" :ripple="false"
                                 :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }">
                                 <p style="font-family: 'Montserrat', sans-serif; 
                                     margin: 0; 
@@ -85,23 +85,23 @@ export default {
                                     font-size: 0.8em;
                                     letter-spacing: .0.5em;
                                     text-transform: uppercase;"> Quienes Somos </p>
-                                <v-icon class="hidden-md-and-up " icon="mdi-account" />
                             </v-tab>
                         </RouterLink>
                         <RouterLink custom v-slot="{ navigate }" to="/contact">
-                            <v-tab @click="navigate" :ripple="false"
+                            <v-tab class="hidden-sm-and-down" @click="navigate" :ripple="false"
                                 :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }">
-                                <p style="font-family: 'Montserrat', sans-serif; 
+                                <p  style="font-family: 'Montserrat', sans-serif; 
                                     margin: 0; 
                                     font-weight: 500;
                                     font-style: normal;
                                     font-size: 0.8em;
                                     letter-spacing: .0.5em;
                                     text-transform: uppercase;"> Contacto </p>
-                                <v-icon class="hidden-md-and-up " icon="mdi-account" />
                             </v-tab>
                         </RouterLink>
                     </v-tabs>
+                    
+                    <v-icon class=" hidden-md-and-up mt-2 mr-10 " size="small" :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }" icon="mdi-menu" />
                 </v-row>
             </v-container>
         </v-app-bar>
@@ -112,6 +112,5 @@ export default {
 .transitional-app-bar {
   transition: background-color 0.4s ease-in-out;
 }
-
 /* Ajusta el tiempo y el efecto de transición según tus preferencias */
 </style>
