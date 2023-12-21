@@ -10,12 +10,12 @@ import CartelMain from './components/CartelMain.vue';
 <template>
   <v-app>
     <SystemBar />
-    <v-img cover  src="/calzado.png"
+    <v-parallax cover  src="/calzado.png"
       >
 
     <TopBar />
-    <CartelMain   style="position: relative; width: 100%; height: 100vh; text-align: center; display: flex; align-items: center; justify-content: center;"/>
-    </v-img>
+    <CartelMain  />
+    </v-parallax>
   <RouterView />
   </v-app>
 </template>

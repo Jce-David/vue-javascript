@@ -41,7 +41,8 @@ export default {
             :dark="isHovering" text="white" :elevation="1" height="50" class="transitional-app-bar" >
             <v-container>
                 <v-row class=" text-h5">
-                    <p class="pt-2 "
+                    <button  class=" ml-7 " >
+                        <p
                         :style="{ color: isHovering || isHoveringColor ? 'black' : 'white', flex: '1', textAlign: 'center' }"
                         style="font-family: 'Montserrat', sans-serif; 
                                     font-weight: 500;
@@ -49,6 +50,8 @@ export default {
                                     font-size: 0.6em;
                                     letter-spacing: 0.5em;
                                     text-transform: uppercase;"> SHEEP </p>
+                    </button>
+
                                      <v-spacer></v-spacer>
                          <v-tabs   class="transitional-tabs" >
                         <RouterLink custom v-slot="{ navigate }" to="/">
@@ -100,8 +103,9 @@ export default {
                             </v-tab>
                         </RouterLink>
                     </v-tabs>
-                    
-                    <v-icon class=" hidden-md-and-up mt-2 mr-10 " size="small" :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }" icon="mdi-menu" />
+                    <button  >
+                        <v-icon class=" hidden-md-and-up mb-1  mr-10 " size="small" :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }" icon="mdi-menu" />
+                    </button>
                 </v-row>
             </v-container>
         </v-app-bar>

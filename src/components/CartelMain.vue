@@ -8,10 +8,10 @@ export default {
 <template>
 
   <v-container >
-    <div  style="position: relative; width: 80%; height: 100vh; text-align: center; display: flex; align-items: center; justify-content: center;" >
+    <div  style="position: relative; height: 100vh; text-align: center; display: flex; align-items: center; justify-content: center;" >
       <v-card class=" mt-10  text-center" color="#FFFFFF00" :elevation="0" >
-      <div  >
-      <p style="color: white; 
+      <div style="max-width: 70vh;"  >
+      <p style="  color: white; 
             font-family: 'Montserrat', sans-serif; 
             margin: 0; 
             font-weight: 500;
