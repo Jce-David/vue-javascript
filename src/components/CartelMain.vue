@@ -34,9 +34,7 @@ export default {
         of the printing and typesetting industry. Lorem Ipsum has been the industry's
         standard dummy text ever since the 1500s, when an unknown printer took a galley
       </p>
-
     </div>
-  
       <v-card-actions class="mt-2  justify-center">
           <router-link v-slot="{ navigate }" custom to="/product">
               <v-btn :ripple="false" color="white" @click="navigate" variant="outlined">
@@ -53,14 +51,10 @@ export default {
       </router-link> 
     </v-card-actions> 
     </v-card>
-   
-
-
-                                
-
+  
     </div>
      
-        
+  
   </v-container>
 </template>
 <style scoped>

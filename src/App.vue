@@ -8,14 +8,8 @@ import CartelMain from './components/CartelMain.vue';
 </script>
 
 <template>
-  <v-app>
+  <v-app  >
     <SystemBar />
-    <v-parallax cover  src="/calzado.png"
-      >
-
-    <TopBar />
-    <CartelMain  />
-    </v-parallax>
   <RouterView />
   </v-app>
 </template>

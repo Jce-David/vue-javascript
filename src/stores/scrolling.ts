@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+
 import { defineStore } from 'pinia'
 
 export const useScrollingStore = defineStore('scrolling', {
@@ -12,7 +12,7 @@ export const useScrollingStore = defineStore('scrolling', {
     actions: {
         onScroll() {
             this.offSetTop = window.scrollY; 
-            this.isHovering = this.offsetTop > 6 ? false: true;
+            this.isHovering = this.offSetTop > 2 ? false: true;
           },
         },
         

@@ -3,6 +3,11 @@ import { mapActions } from 'pinia';
 import { mapState } from 'pinia';
 import { useScrollingStore } from '@/stores/scrolling'
 export default {
+    data() {
+        return {
+            isHoveringTop: '',
+        }
+    },
     computed: {
         ...mapState(useScrollingStore, ['offSetTop', 'isHovering']),
         isHoveringColor() {
@@ -19,6 +24,12 @@ export default {
         deactivateHover() {
             // Desactiva el hover cuando el mouse sale
             this.isHovering = false;
+        },
+        setHoveredButton(buttonName: string) {
+            this.isHoveringTop = buttonName;
+        },
+        clearHoveredButton() {
+            this.isHoveringTop = '';
         },
     },
     mounted() {
@@ -38,73 +49,102 @@ export default {
 <template>
     <v-hover v-slot:default="{ isHovering, props }" @mouseenter="activateHover" @mouseleave="deactivateHover">
         <v-app-bar v-bind="props" :style="{ background: isHovering || isHoveringColor ? 'white' : '#FFFFFF00' }"
-            :dark="isHovering" text="white" :elevation="1" height="50" class="transitional-app-bar" >
+            :dark="isHovering" text="white" :elevation="1" height="60" class="transitional-app-bar">
             <v-container>
                 <v-row class=" text-h5">
-                    <button  class=" ml-7 " >
-                        <p
-                        :style="{ color: isHovering || isHoveringColor ? 'black' : 'white', flex: '1', textAlign: 'center' }"
-                        style="font-family: 'Montserrat', sans-serif; 
+                    <RouterLink custom v-slot="{ navigate }" to="/">
+                        <button :class="{ 'bottom-border': isHoveringTop === 'SHEEP' }" @mouseover="setHoveredButton('SHEEP')" @mouseleave="clearHoveredButton"  @click="navigate" class=" ml-7 ">
+                            <p :style="{ color: isHovering || isHoveringColor ? 'black' : 'white', flex: '1', textAlign: 'center' }"
+                                style="font-family: 'Montserrat', sans-serif; 
                                     font-weight: 500;
                                     font-style: normal;
                                     font-size: 0.6em;
                                     letter-spacing: 0.5em;
                                     text-transform: uppercase;"> SHEEP </p>
-                    </button>
+                        </button>
+                    </RouterLink>
+                    <v-spacer></v-spacer>
 
-                                     <v-spacer></v-spacer>
-                         <v-tabs   class="transitional-tabs" >
-                        <RouterLink custom v-slot="{ navigate }" to="/">
-                            <v-tab  class=" hidden-sm-and-down"  @click="navigate" :ripple="false"
-                                :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }">
-                                <p style="font-family: 'Montserrat', sans-serif; 
-                                    margin: 0; 
-                                    font-weight: 500;
-                                    font-style: normal;
-                                    font-size: 0.8em;
-                                    letter-spacing: .0.5em;
-                                    text-transform: uppercase;"> Inicio </p>
-                            </v-tab>
-                        </RouterLink>
-                        <RouterLink custom v-slot="{ navigate }" to="/product">
-                            <v-tab class=" hidden-sm-and-down"  @click="navigate" :ripple="false"
-                                :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }">
-                                <p  style="font-family: 'Montserrat', sans-serif; 
-                                    margin: 0; 
-                                    font-weight: 500;
-                                    font-style: normal;
-                                    font-size: 0.8em;
-                                    letter-spacing: .0.5em;
-                                    text-transform: uppercase;"> Productos </p>
-                            </v-tab>
-                        </RouterLink>
-                        <RouterLink custom v-slot="{ navigate }" to="/account">
-                            <v-tab  class=" hidden-sm-and-down" @click="navigate" :ripple="false"
-                                :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }">
-                                <p style="font-family: 'Montserrat', sans-serif; 
-                                    margin: 0; 
-                                    font-weight: 500;
-                                    font-style: normal;
-                                    font-size: 0.8em;
-                                    letter-spacing: .0.5em;
-                                    text-transform: uppercase;"> Quienes Somos </p>
-                            </v-tab>
-                        </RouterLink>
-                        <RouterLink custom v-slot="{ navigate }" to="/contact">
-                            <v-tab class="hidden-sm-and-down" @click="navigate" :ripple="false"
-                                :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }">
-                                <p  style="font-family: 'Montserrat', sans-serif; 
-                                    margin: 0; 
-                                    font-weight: 500;
-                                    font-style: normal;
-                                    font-size: 0.8em;
-                                    letter-spacing: .0.5em;
-                                    text-transform: uppercase;"> Contacto </p>
-                            </v-tab>
-                        </RouterLink>
-                    </v-tabs>
-                    <button  >
-                        <v-icon class=" hidden-md-and-up mb-1  mr-10 " size="small" :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }" icon="mdi-menu" />
+                    <RouterLink custom v-slot="{ navigate }" to="/">
+                        <button style="
+                               
+                                padding: 0;
+                                margin: 10px;
+                                
+                                align-items: center;" class=" u-h6 hidden-sm-and-down" @click="navigate"
+                            :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }"
+                            :class="{ 'bottom-border': isHoveringTop === 'INICIO' }" @mouseover="setHoveredButton('INICIO')" @mouseleave="clearHoveredButton"
+                            >
+                            <p style="
+                                font-family: 'Montserrat', sans-serif;
+                                font-weight: 400;
+                                font-style: normal;
+                                font-size: 10px;
+                                letter-spacing: 0.2em;
+                                text-transform: uppercase;
+                                margin: 0;"> Inicio </p>
+                        </button>
+                    </RouterLink>
+                    <RouterLink custom v-slot="{ navigate }" to="/product">
+                        <button style="                         
+                                padding: 0;
+                                margin: 10px;
+                                align-items: center;" class=" u-h6 hidden-sm-and-down" @click="navigate"
+                            :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }"
+                            :class="{ 'bottom-border': isHoveringTop === 'PRODUCTOS' }" @mouseover="setHoveredButton('PRODUCTOS')" @mouseleave="clearHoveredButton"
+                            >
+                            <p style="
+                                font-family: 'Montserrat', sans-serif;
+                                font-weight: 400;
+                                font-style: normal;
+                                font-size: 10px;
+                                letter-spacing: 0.2em;
+                                text-transform: uppercase;
+                                margin: 0;">PRODUCTOS</p>
+                        </button>
+                    </RouterLink>
+                    <RouterLink custom v-slot="{ navigate }" to="/account">
+                        <button style="                              
+                                padding: 0;
+                                margin: 10px;                                
+                                align-items: center;" class=" u-h6 hidden-sm-and-down" @click="navigate"
+                            :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }"
+                            :class="{ 'bottom-border': isHoveringTop === 'NOSOTROS' }" @mouseover="setHoveredButton('NOSOTROS')" @mouseleave="clearHoveredButton"
+                            >
+                            <p style="
+                                font-family: 'Montserrat', sans-serif;
+                                font-weight: 400;
+                                font-style: normal;
+                                font-size: 10px;
+                                letter-spacing: 0.2em;
+                                text-transform: uppercase;
+                                margin: 0;"> NOSOTROS </p>
+                        </button>
+                    </RouterLink>
+                    <RouterLink custom v-slot="{ navigate }" to="/contact">
+                        <button style="                              
+                                padding: 0;
+                                margin: 10px;                                
+                                align-items: center;" class=" u-h6 hidden-sm-and-down" @click="navigate"
+                            :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }"
+                            :class="{ 'bottom-border': isHoveringTop === 'CONTACTO' }" @mouseover="setHoveredButton('CONTACTO')" @mouseleave="clearHoveredButton"
+                            >
+                            <p style="
+                                font-family: 'Montserrat', sans-serif;
+                                font-weight: 400;
+                                font-style: normal;
+                                font-size: 10px;
+                                letter-spacing: 0.2em;
+                                text-transform: uppercase;
+                                margin: 0;"> Contacto </p>
+                        </button>
+                    </RouterLink>
+
+                    <button>
+                        <v-icon class=" hidden-md-and-up mr-10 " size="small"
+                            :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }" icon="mdi-menu"
+                          
+                            />
                     </button>
                 </v-row>
             </v-container>
@@ -114,7 +154,19 @@ export default {
 
 <style scoped>
 .transitional-app-bar {
-  transition: background-color 0.4s ease-in-out;
+    transition: background-color 0.4s ease-in-out;
 }
+.bottom-border::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background-color: black;
+}
+
+.bottom-border {
+  position: relative;
+}
+/*
+
 /* Ajusta el tiempo y el efecto de transición según tus preferencias */
 </style>
