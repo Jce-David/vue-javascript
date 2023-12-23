@@ -1,19 +1,20 @@
 <script lang=ts >
 
+import TopBarComplement from '@/components/TopBarComplement.vue';
 import TopBarEjemplo from '@/components/TopBarEjemplo.vue';
 
 
 
 export default {
     components: {
-
-    TopBarEjemplo
+ 
+    TopBarComplement
 }
 }
 </script>
 
 <template>
-<TopBarEjemplo  />
+<TopBarComplement  />
 <v-main>
     <p>Hola esto es Contacto</p>
 </v-main>

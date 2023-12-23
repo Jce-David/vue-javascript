@@ -2,7 +2,10 @@
 import { mapActions } from 'pinia';
 import { mapState } from 'pinia';
 import { useScrollingStore } from '@/stores/scrolling'
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent (  {
+    emits: ['mouseenter', 'mouseleave'],
     data() {
         return {
             isHoveringTop: '',
@@ -19,11 +22,11 @@ export default {
         ...mapActions(useScrollingStore, ['onScroll']),
         activateHover() {
             // Activa el hover cuando el mouse entra
-            this.isHovering = true;
+            this.$emit('mouseenter');
         },
         deactivateHover() {
             // Desactiva el hover cuando el mouse sale
-            this.isHovering = false;
+            this.$emit('mouseleave');
         },
         setHoveredButton(buttonName: string) {
             this.isHoveringTop = buttonName;
@@ -40,15 +43,15 @@ export default {
         window.removeEventListener('scroll', this.onScroll);
     },
 
-}
+})
 
 </script>
 
 
 
 <template>
-    <v-hover v-slot:default="{ isHovering, props }" @mouseenter="activateHover" @mouseleave="deactivateHover">
-        <v-app-bar v-bind="props" :style="{ background: isHovering || isHoveringColor ? 'white' : '#FFFFFF00' }"
+    <v-hover v-slot:default="{ isHovering, props }" >
+            <v-app-bar v-bind="props" :style="{ background: isHovering || isHoveringColor ? 'white' : '#FFFFFF00' }"
             :dark="isHovering" text="white" :elevation="1" height="60" class="transitional-app-bar">
             <v-container>
                 <v-row class=" text-h5">
@@ -72,7 +75,7 @@ export default {
                                 margin: 10px;
                                 
                                 align-items: center;" class=" u-h6 hidden-sm-and-down" @click="navigate"
-                            :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }"
+                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white' }"
                             :class="{ 'bottom-border': isHoveringTop === 'INICIO' }" @mouseover="setHoveredButton('INICIO')" @mouseleave="clearHoveredButton"
                             >
                             <p style="
@@ -80,7 +83,7 @@ export default {
                                 font-weight: 400;
                                 font-style: normal;
                                 font-size: 10px;
-                                letter-spacing: 0.2em;
+                                letter-spacing: 0.1em;
                                 text-transform: uppercase;
                                 margin: 0;"> Inicio </p>
                         </button>
@@ -90,7 +93,7 @@ export default {
                                 padding: 0;
                                 margin: 10px;
                                 align-items: center;" class=" u-h6 hidden-sm-and-down" @click="navigate"
-                            :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }"
+                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white' }"
                             :class="{ 'bottom-border': isHoveringTop === 'PRODUCTOS' }" @mouseover="setHoveredButton('PRODUCTOS')" @mouseleave="clearHoveredButton"
                             >
                             <p style="
@@ -98,7 +101,7 @@ export default {
                                 font-weight: 400;
                                 font-style: normal;
                                 font-size: 10px;
-                                letter-spacing: 0.2em;
+                                letter-spacing: 0.1em;
                                 text-transform: uppercase;
                                 margin: 0;">PRODUCTOS</p>
                         </button>
@@ -108,7 +111,7 @@ export default {
                                 padding: 0;
                                 margin: 10px;                                
                                 align-items: center;" class=" u-h6 hidden-sm-and-down" @click="navigate"
-                            :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }"
+                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white' }"
                             :class="{ 'bottom-border': isHoveringTop === 'NOSOTROS' }" @mouseover="setHoveredButton('NOSOTROS')" @mouseleave="clearHoveredButton"
                             >
                             <p style="
@@ -126,7 +129,7 @@ export default {
                                 padding: 0;
                                 margin: 10px;                                
                                 align-items: center;" class=" u-h6 hidden-sm-and-down" @click="navigate"
-                            :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }"
+                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white' }"
                             :class="{ 'bottom-border': isHoveringTop === 'CONTACTO' }" @mouseover="setHoveredButton('CONTACTO')" @mouseleave="clearHoveredButton"
                             >
                             <p style="
@@ -142,13 +145,14 @@ export default {
 
                     <button>
                         <v-icon class=" hidden-md-and-up mr-10 " size="small"
-                            :style="{ color: isHovering || isHoveringColor ? 'black' : 'white' }" icon="mdi-menu"
+                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white' }" icon="mdi-menu"
                           
                             />
                     </button>
                 </v-row>
             </v-container>
         </v-app-bar>
+ 
     </v-hover>
 </template>
 

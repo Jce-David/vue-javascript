@@ -3,3 +3,7 @@ export interface Product {
     price: number;
     id: number;
 }
+export interface CartDetail {
+    product: Product;
+    quantity: number;
+}

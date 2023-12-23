@@ -1,10 +1,17 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+<script  lang="ts">
+import { RouterView } from 'vue-router'
 
 import SystemBar from './components/SystemBar.vue'
-import  TopBar from './components/TopBar.vue';
-import TopBarLogo from './components/TopBarLogo.vue';
-import CartelMain from './components/CartelMain.vue';
+
+
+export default { 
+  components: {
+    SystemBar,
+    RouterView
+  }, 
+  emits: ['mouseenter', 'mouseleave'],
+
+}
 </script>
 
 <template>

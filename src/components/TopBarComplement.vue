@@ -51,11 +51,12 @@ export default {
                                 :class="{ 'bottom-border': isHovering === 'INICIO' }" @mouseover="setHoveredButton('INICIO')" @mouseleave="clearHoveredButton"
                               >
                                 <p style="
+                                color: #1c1b1b;
                                 font-family: 'Montserrat', sans-serif;
                                 font-weight: 400;
                                 font-style: normal;
                                 font-size: 10px;
-                                letter-spacing: 0.2em;
+                                letter-spacing: 0.1em;
                                 text-transform: uppercase;
                                 margin: 0;">INICIO</p>
                             </button>
@@ -69,11 +70,12 @@ export default {
                                 :class="{ 'bottom-border': isHovering === 'PRODUCTOS' }" @mouseover="setHoveredButton('PRODUCTOS')" @mouseleave="clearHoveredButton"
                               >
                                 <p style="
+                                       color: #1c1b1b;
                                 font-family: 'Montserrat', sans-serif;
                                 font-weight: 400;
                                 font-style: normal;
                                 font-size: 10px;
-                                letter-spacing: 0.2em;
+                                letter-spacing: 0.1em;
                                 text-transform: uppercase;
                                 margin: 0;">PRODUCTOS</p>
                             </button>
@@ -87,11 +89,12 @@ export default {
                                 :class="{ 'bottom-border': isHovering === 'NOSOTROS' }" @mouseover="setHoveredButton('NOSOTROS')" @mouseleave="clearHoveredButton"
                               >
                                 <p style="
+                                       color: #1c1b1b;
                                 font-family: 'Montserrat', sans-serif;
                                 font-weight: 400;
                                 font-style: normal;
                                 font-size: 10px;
-                                letter-spacing: 0.2em;
+                                letter-spacing: 0.1em;
                                 text-transform: uppercase;
                                 margin: 0;">NOSOTROS</p>
                             </button>
@@ -105,11 +108,12 @@ export default {
                                 :class="{ 'bottom-border': isHovering === 'CONTACTO' }" @mouseover="setHoveredButton('CONTACTO')" @mouseleave="clearHoveredButton"
                               >
                                 <p style="
+                                       color: #1c1b1b;
                                 font-family: 'Montserrat', sans-serif;
                                 font-weight: 400;
                                 font-style: normal;
                                 font-size: 10px;
-                                letter-spacing: 0.2em;
+                                letter-spacing: 0.1em;
                                 text-transform: uppercase;
                                 margin: 0;">CONTACTO</p>
                             </button>
@@ -133,7 +137,7 @@ export default {
   content: '';
   display: block;
   height: 2px;
-  background-color: black;
+  background-color:  #1c1b1b;;
 }
 
 .bottom-border {

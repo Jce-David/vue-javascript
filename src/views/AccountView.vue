@@ -1,24 +1,17 @@
 <script lang=ts >
-
-import  TopBarComplement from '@/components/TopBarComplement.vue';
-
-
+import TopBarComplement from '@/components/TopBarComplement.vue';
 export default {
     components: {
-   
-    TopBarComplement
-}
+        TopBarComplement
+    }
 }
 </script>
 
 <template>
-
-        <TopBarComplement  />
-<div>
-    <p>Hola esto es account</p>
-</div>
-
-   
-
-
+    <TopBarComplement />
+    <v-main>
+        <div>
+            <p>Hola esto es account</p>
+        </div>
+    </v-main>
 </template>
