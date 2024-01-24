@@ -27,5 +27,5 @@ export default {
         <p class=" text-h4  text-center  ml-1">Logo</p>
       </v-col>
     </v-row>
-  </v-app-bar>
+  </v-app-bar>       
 </template>

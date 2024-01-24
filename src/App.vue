@@ -15,9 +15,10 @@ export default {
 </script>
 
 <template>
-  <v-app  >
+
+  <v-app  style="background-color: rgb(242, 242, 242)" >
     <SystemBar />
-  <RouterView />
+    <RouterView />
   </v-app>
 </template>
 

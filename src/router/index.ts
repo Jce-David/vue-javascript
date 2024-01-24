@@ -1,33 +1,31 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
+  
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: () => import('../views/HomeView.vue'),
+  
     },
     {
         path: '/product',
         name: 'product',
         component: () => import('../views/ProductView.vue'),
-        props: true,
+ 
     },
+    {
+      path: '/categories/:categoryId',
+      name: 'category',
+      component: () => import('../views/ProductView.vue')
+    },  
     {
         path: '/product/:id',
         name: 'product-details',
         component: () => import('../views/ProductRoute.vue'),
-        props: true,
-    },
-    {
-      path: '/account',
-      name: 'account',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AccountView.vue')
     },
     {
       path: '/contact',
@@ -36,6 +34,14 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ContactView.vue')
+    },
+    {
+      path: '/account',
+      name: 'account',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/AccountView.vue')
     },
     {
       path: '/cart',

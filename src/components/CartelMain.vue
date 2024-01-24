@@ -10,9 +10,9 @@ export default {
 
 <template>
 
-  <v-container >
+  <v-container class="mt-16" >
     <div  style="position: relative; height: 100vh; text-align: center; display: flex; align-items: center; justify-content: center;" >
-      <v-card class=" mt-10  text-center" color="#FFFFFF00" :elevation="0" >
+      <v-card class=" mt-n16  text-center" color="#FFFFFF00" :elevation="0" >
       <div style="max-width: 70vh;"  >
       <p style="  color: white; 
             font-family: 'Montserrat', sans-serif; 
@@ -20,7 +20,7 @@ export default {
             font-weight: 500;
             font-style: normal;
             font-size: 2em;
-            letter-spacing: .1em;
+
             text-transform: uppercase;
             line-height: 1.2;
             " class="mb-2  text-center"
@@ -33,26 +33,19 @@ export default {
             font-weight: 400;
             font-style: normal;
             font-size: 0.8em;
-            letter-spacing: .1em;" class=" text-center">Lorem Ipsum is simply dummy text
+            letter-spacing: .1em;" class="  mx-10 text-center">Lorem Ipsum is simply dummy text
         of the printing and typesetting industry. Lorem Ipsum has been the industry's
         standard dummy text ever since the 1500s, when an unknown printer took a galley
       </p>
     </div>
-      <v-card-actions class="mt-2  justify-center">
           <router-link v-slot="{ navigate }" custom to="/product">
-              <v-btn :ripple="false" color="white" @click="navigate" variant="outlined">
-          <p style="color: white; 
-        font-family: 'Montserrat', sans-serif; 
-        margin: 0; 
-        font-weight: 400;
-        font-style: normal;
-        font-size: 0.8em;
-        letter-spacing: .1em;" class="text-center">
+              <button class=" hoverable-btn button  mt-5"  @click="navigate" variant="outlined">
+            <a class=" text-center">
             Ver Productos
-          </p>
-        </v-btn>
+            </a>
+          </button>
       </router-link> 
-    </v-card-actions> 
+
     </v-card>
   
     </div>
@@ -60,9 +53,31 @@ export default {
   
   </v-container>
 </template>
-<style scoped>
+<style >
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto+Mono:wght@300;400&display=swap');
+
+
 .hoverable-btn:hover {
   background-color: white;
-  color: black;
+  color: #1c1b1b;
 }
+.button { 
+  color: white;
+  position: relative;
+  display: inline-block;
+  padding: 14px 22px;
+  line-height: normal;
+  border: 1px solid white;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  text-align: center;
+  letter-spacing: .2em;
+  font-family: Montserrat,sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: transparent;
+}
+
+
 </style>

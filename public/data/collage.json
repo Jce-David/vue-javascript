@@ -1,0 +1,32 @@
+[
+    {
+        "title": "MEN'S",
+        "imageCollage": "https://i.pinimg.com/564x/5b/a0/e8/5ba0e851565e55549ab585f4945f9863.jpg ",
+        "id": 1
+    },
+    {
+        "title": "LOW TOPS",
+        "imageCollage": "https://i.pinimg.com/736x/30/c7/d6/30c7d6afcdc01dfe7532cd5b192cf215.jpg",
+        "id": 2
+    },
+    {
+        "title": "BOOTS",
+        "imageCollage": "https://i.pinimg.com/736x/e8/3c/ae/e83caee6f988067c751e461e91d1b9b8.jpg",
+        "id": 3
+    },
+    {
+        "title": "WOMEN'S",
+        "imageCollage": "https://i.pinimg.com/564x/8a/3e/a7/8a3ea793440ee589921ef19ef2277f80.jpg",
+        "id": 4
+    },
+    {
+        "title": "HIGH TOPS",
+        "imageCollage": "https://i.pinimg.com/564x/9e/03/af/9e03afbbc4b5e5a8d7b44b0cdf2a5502.jpg",
+        "id": 5
+    },
+    {
+        "title": "REPURP",
+        "imageCollage": "https://i.pinimg.com/564x/91/30/2e/91302eaca52f94e4c323e2287e70f3b1.jpg",
+        "id": 6
+    }
+]

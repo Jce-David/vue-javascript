@@ -1,0 +1,155 @@
+[
+    {
+        "name": "Pantufla abrazos Oveja Marrón",
+        "price": 99.00,
+        "id": 1,
+        "imageProduct": "/productos/marron-alto-1.png",
+        "imageProduct2": "/marron-2-chato.png",
+        
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39"
+        ],
+        "categoryId": 1
+    },
+    {
+        "name": "Pantufla abrazos alto oveja Beige",
+        "price": 119.00,
+        "id": 2,
+        "imageProduct": "/productos/beige-alto-1.png",
+        "imageProduct2": "/marron-2-alto.png",
+
+      
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 2
+    },
+    {
+        "name": "Pantufla abrazos alto Habano",
+        "price": 119.00,
+        "id": 3,
+        "imageProduct": "/productos/habano-alto-1.png",
+        "imageProduct2": "/camel-2-alto.png",
+       
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 2
+    },
+    {
+        "name": "Pantufla abrazos alto Rosado ",
+        "price": 119.00,
+        "id": 4,
+        "imageProduct": "/productos/rosado-alto-1.png",
+        "imageProduct2": "/rosado-2-alto.png",
+       
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 2
+    },
+    {
+        "name": "Pantufla abrazos Oveja Plomo",
+        "price": 99.00,
+        "id": 5,
+        "imageProduct": "/productos/plomo-alto-1.png",
+        "imageProduct2": "/marron-2-chato.png",
+        
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39"
+        ],
+        "categoryId": 1
+    },
+    {
+        "name": "Pantufla abrazos alto oveja Verde",
+        "price": 119.00,
+        "id": 6,
+        "imageProduct": "/productos/verde-alto-1.png",
+        "imageProduct2": "/marron-2-alto.png",
+
+      
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 2
+    },
+    {
+        "name": "Pantufla abrazos alto Negro ",
+        "price": 119.00,
+        "id": 7,
+        "imageProduct": "/productos/negro-alto-1.png",
+        "imageProduct2": "/camel-2-alto.png",
+       
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 2
+    },
+    {
+        "name": "Pantufla abrazos alto Lila",
+        "price": 119.00,
+        "id": 8,
+        "imageProduct": "/productos/lila-alto-1.png",
+        "imageProduct2": "/rosado-2-alto.png",
+       
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 2
+    },
+    {
+        "name": "Pantufla abrazos alto Celeste ",
+        "price": 119.00,
+        "id": 9,
+        "imageProduct": "/productos/azulejo-alto-1.png",
+        "imageProduct2": "/rosado-2-alto.png",
+       
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 2
+    }
+]

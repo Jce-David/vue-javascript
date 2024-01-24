@@ -1,22 +1,28 @@
 <script lang=ts >
-
-import TopBarComplement from '@/components/TopBarComplement.vue';
 import TopBarEjemplo from '@/components/TopBarEjemplo.vue';
-
-
-
+import FooterMain from '@/components/FooterMain.vue'
+import SobreMiCompra from '@/components/Account/SobreMiCompra.vue';
 export default {
+    beforeRouteEnter(to, from, next) {
+    // Antes de entrar en la nueva ruta, ajusta la posición del scroll al inicio
+    window.scrollTo(0, 0);
+    next();
+  },
     components: {
- 
-    TopBarComplement
+    FooterMain,
+    TopBarEjemplo,
+    SobreMiCompra
 }
 }
 </script>
 
 <template>
-<TopBarComplement  />
-<v-main>
-    <p>Hola esto es Contacto</p>
-</v-main>
+    <TopBarEjemplo />
+    <v-main >
+       <SobreMiCompra />
+    </v-main>
 
+  <FooterMain/>
+
+  
 </template>

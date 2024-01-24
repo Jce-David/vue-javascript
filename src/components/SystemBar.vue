@@ -1,7 +1,7 @@
 <script lang="ts">
 import { mapActions } from 'pinia';
 import { mapState } from 'pinia';
-import { useScrollingStore } from '@/stores/scrolling'
+import { useScrollingStore } from '.././stores/scrolling'
 
 export default {
 
@@ -21,18 +21,18 @@ export default {
 </script>
 
 <template>
-    <v-system-bar height="42" class="justify-center text-align: center;" color="#facb0b" app hide-on-scroll
-        v-if="offSetTop > 2 ? 0 : 2">
-        <p style="font-family: Montserrat,sans-serif; 
+    <v-system-bar height="36" class="justify-center text-align: center;"   color="#1c1b1b" app hide-on-scroll
+        v-if="offSetTop > 2 ? 0 : 2">     
+            <p style="font-family: Montserrat,sans-serif; 
             margin: 0; 
+            color: white;
             font-weight: 500;
             font-size: 11px;
-            font-style: normal;
-            color: #1c1b1b;
+            font-style: normal;       
             letter-spacing: 0.1em;
-            text-transform: uppercase;"> 
-            delivery gratis hasta el 6 de agosto
-        </p>
+            text-transform: uppercase
+            ;" >  delivery gratis hasta el 6 de Marzo </p>
+           
     </v-system-bar>
 </template>
 
