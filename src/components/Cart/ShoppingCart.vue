@@ -14,15 +14,6 @@ export default {
 }
 </script>
 <template>
-    <p style=" color: #1c1b1b;
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.4em;
-    line-height: 1em;" >
-      Productos agregado al carrito:
-    </p>
 
       <div class="static-table" v-if="detailsCart.length > 0">
           <ShoopingCartItem :detail="detail" v-for="detail in detailsCart" :key="detail.product.id" />

@@ -3,8 +3,8 @@ import CartelMain from '@/components/CartelMain.vue';
 
 import TopBarEjemploMain from '@/components/TopBarEjemploMain.vue';
 import BackgroundMain from '@/components/Main/BackgroundMain.vue'
-import CollageMain from '@/components/Main/CollageMain.vue';
 import FooterMain from '@/components/FooterMain.vue'
+import CartelImage from '@/components/Main/CartelImage.vue'
 import { useCollageStore } from '@/stores/collage'
 
 export default {
@@ -20,10 +20,9 @@ export default {
   components: {
     FooterMain,
     CartelMain,
-    CollageMain,
     TopBarEjemploMain,      
     BackgroundMain,
-
+    CartelImage
 
   }
 }
@@ -40,7 +39,8 @@ export default {
   </v-parallax>
  
   <BackgroundMain />
-  <CollageMain />
+  <CartelImage />
+
 
   <FooterMain />
 </template>

@@ -21,17 +21,17 @@ export default {
 </script>
 
 <template>
-    <v-system-bar height="36" class="justify-center text-align: center;"   color="#1c1b1b" app hide-on-scroll
+    <v-system-bar height="36" class="justify-center text-align: center;"   color="#ffcd03" app hide-on-scroll
         v-if="offSetTop > 2 ? 0 : 2">     
             <p style="font-family: Montserrat,sans-serif; 
             margin: 0; 
-            color: white;
+            color: #1c1b1b;
             font-weight: 500;
             font-size: 11px;
             font-style: normal;       
             letter-spacing: 0.1em;
             text-transform: uppercase
-            ;" >  delivery gratis hasta el 6 de Marzo </p>
+            ;" >  delivery gratis hasta el 16 de febrero </p>
            
     </v-system-bar>
 </template>

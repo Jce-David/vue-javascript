@@ -17,18 +17,19 @@ export default {
 <template>
   <TopBarEjemplo />
 
-    <v-main>
+    <v-main  class="mb-16">
+      <v-container>
         <v-row class="mx-8 mt-6 " >
-        <v-col :cols="12" :sm="12" :md="12" :lg="7" :xl="7" >
+        <v-col :cols="12" :sm="12" :md="12" :lg="12" :xl="12" >
           <ShoppingCart />
         </v-col>
-        <v-col  :lg="1" :xl="1"  >
-        </v-col>
-        <v-col :cols="12" :sm="12" :md="12" :lg="4" :xl="4" >
+        <v-col :cols="12" :sm="12" :md="12" :lg="12" :xl="12" >
           <summaryCart />
         </v-col>
       </v-row>
-      <CarrouselProduct />
+      </v-container>
+   
+
   </v-main>
   <FooterMain/>
 </template>

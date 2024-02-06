@@ -32,79 +32,73 @@ export default {
 
 <template  >
 
-
-
-    <RouterLink  :to="{ name: 'product-details', params: { id: product.id } }" >
+<div  >
+  <RouterLink  :to="{ name: 'product-details', params: { id: product.id } }" >
     
-      <div @click="onAddButtonClick">  
+    <div 
 
-            <v-img
+    style= " border: 1px solid #aaaaaa; background-color:whitesmoke; 
+    ; max-height: 56vh; "
+    @click="onAddButtonClick">  
 
-        aspect-ratio="1"
-        :src="imageShopCart"
-        class="enlarge-on-hover ml-3 "
-        style=" height: 20vh; transition: transform 0.3s ease-in-out;"
-      >
-        <template v-slot:placeholder>
-          <v-row
-            class="fill-height ma-0"
-            align="center"
-            justify="center"
-          >
-            <v-progress-circular
+          <v-img
+          style=" transition: transform 0.3s ease-in-out; "
+      aspect-ratio="1"
+      :src="imageShopCart"
+      class="enlarge-on-hover  mt-16  "
 
-              indeterminate
-              color="black"
-            ></v-progress-circular>
-          </v-row>
-        </template>
-      </v-img>
+     
+    >
+      <template v-slot:placeholder>
+        <v-row
+          class="fill-height ma-0"
+          align="center"
+          justify="center"
+        >
+          <v-progress-circular
 
-  
-       </div>
-   
-    </RouterLink>
+            indeterminate
+            color="black"
+          ></v-progress-circular>
+        </v-row>
+      </template>
+    </v-img>
 
-    <div style="
+
+     </div>
+ 
+  </RouterLink>
+
+  <div
+  class="ml-2"
+  style="
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrar verticalmente */
-    justify-content: center; /* Centrar horizontalmente */
-" :elevation="0">
-<RouterLink  style="text-decoration: none; color: inherit; "  :to="{ name: 'product-details', params: { id: product.id } }">
-        <button @click="onAddButtonClick" >
-            <p style="
-        background-color: transparent;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 12px;
-        letter-spacing: 0.1em;
-         /* Centrar horizontalmente */
-        line-height: 1.5; /* Centrar verticalmente */
-       " class="mt-3">{{ product.name }}</p>
-        </button>
-</RouterLink>
-        <RouterLink style="text-decoration: none; color: inherit; " :to="{ name: 'product-details', params: { id: product.id } }">
-            <button @click="onAddButtonClick" style="
-        background: none;
-        border: none;
-        padding: 0;
-        margin: 0;    
+    align-items: flex-start; /* Alinear a la izquierda verticalmente */
+    justify-content: flex-start; /* Alinear a la izquierda horizontalmente */
+    "
+  :elevation="0"
+>
+  <RouterLink  style="text-decoration: none; color: inherit; "  :to="{ name: 'product-details', params: { id: product.id } }">
+    <button @click="onAddButtonClick">
+      <p class="mt-3">{{ product.name }}</p>
+    </button>
+  </RouterLink>
+  <RouterLink style="text-decoration: none; color: inherit; " :to="{ name: 'product-details', params: { id: product.id } }">
+    <button @click="onAddButtonClick" style="
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;    
     " >
-                <p style=" 
-            background-color: transparent;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-style: normal;
-            font-size: 11px;
-            letter-spacing: 0.1em;
-           /* Centrar horizontalmente */
-            line-height: 1.5 ; /* Centrar verticalmente */
-            color : #6a6a6a ; " class=" mt-3"> s/. {{ product.price }}.00 </p>
-            </button>
-        </RouterLink>
-    </div>  
+      <p class="mt-1">s/. {{ product.price }}.00</p>
+    </button>
+  </RouterLink>
+</div>
+
+</div>
+
+   
 
 </template>
 

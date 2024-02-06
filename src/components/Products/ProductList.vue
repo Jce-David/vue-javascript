@@ -26,26 +26,17 @@ export default {
 </script>
 
 <template>
-<v-container>
-  <div class="mb-2   mt-2" style="display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;">
-     <div style="max-width: 70vh;" class="div-center">          
-            <h1 class=" Heading ">Nuestros Productos</h1>    
-        </div>
-    </div>
-        
-</v-container>
+
 
 <v-container>
-    <v-row class=" mb-10  " >      
-            <v-col :cols="6" :sm="6" :md="3" :lg="3" :xl="3" v-for="product in products" :key="product.id">
+    <v-row  >      
+            <v-col :cols="6" :sm="6" :md="4" :lg="4" :xl="4" v-for="product in products" :key="product.id">
                 <ProductCard  :product="product" />
             </v-col>
         </v-row>   
-
 </v-container>
+
+
   
 
   

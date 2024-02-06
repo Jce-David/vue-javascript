@@ -4,15 +4,27 @@ import { mapState } from 'pinia';
 import { useScrollingStore } from '@/stores/scrolling'
 import { defineComponent } from 'vue';
 import { useCartStore } from '@/stores/cart';
-
+import ShoppingCart from '@/components/Cart/ShoppingCart.vue';
+import summaryCart from '@/components/Cart/summaryCart.vue';
 
 
 export default defineComponent({
+    components: {
+        summaryCart, ShoppingCart,
+    },
     emits: ['mouseenter', 'mouseleave'],
     data() {
         return {
             isHoveringTop: '',
             drawer: false,
+            drawerCart: false,
+            categories: [
+      { name: 'Babuchas classic', id: 1, description: 'productos para u' },
+      { name: 'Babuchas botin ', id: 2, description: 'productos para Oficina' },
+      { name: 'slippers classic', id: 3, description: 'productos para computadora' },
+      { name: 'slippers classic border', id: 4, description: 'productos para w' },
+      ]
+
         }
     },
     computed: {
@@ -28,6 +40,15 @@ export default defineComponent({
         }
     },
     methods: {
+        selectCategory(categoryId: number) {
+            this.$router.push({ name: 'category', params: { categoryId } })
+        },
+        clearCategory() {
+            this.$router.push({
+                name: 'product',
+
+            })
+        },
         ...mapActions(useScrollingStore, ['onScroll']),
         activateHover() {
             // Activa el hover cuando el mouse entra
@@ -81,7 +102,7 @@ export default defineComponent({
                         </button>
                     </RouterLink>
 
-                    <RouterLink custom v-slot="{ navigate }" to="/account">
+                    <RouterLink custom v-slot="{ navigate }" to="/Our-History">
                         <button style=" 
                                 padding: 0;
                                 margin:  10px;
@@ -108,18 +129,16 @@ export default defineComponent({
                     <v-spacer class=" hidden-sm-and-down mr-n15 "> </v-spacer>
                     <RouterLink custom v-slot="{ navigate }" to="/">
                         <button @click="navigate" class=" hidden-md-and-up   mx-auto text-center ">
-                            <p 
-                            class="mt-2"
-                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
+                            <p class="mt-2"
+                                :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
                                 style="font-family: 'Montserrat', sans-serif; 
                                     font-weight: 500;
                                     font-style: normal;
                                     font-size: 1.4em;
                                     letter-spacing: -0.1rem;
                                     ">Alpaca</p>
-                            <p 
-                            class="mt-n2 ml-5 "
-                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
+                            <p class="mt-n2 ml-5 "
+                                :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
                                 style="font-family: 'Montserrat', sans-serif; 
                                     font-weight: 400;
                                     font-style: normal;
@@ -129,18 +148,16 @@ export default defineComponent({
                     </RouterLink>
                     <RouterLink custom v-slot="{ navigate }" to="/">
                         <button @click="navigate" class=" hidden-sm-and-down   mr-16 text-center ">
-                            <p 
-                            class="mt-2"
-                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
+                            <p class="mt-2"
+                                :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
                                 style="font-family: 'Montserrat', sans-serif; 
                                     font-weight: 500;
                                     font-style: normal;
                                     font-size: 1.4em;
                                     letter-spacing: -0.1rem;
                                     ">Alpaca</p>
-                            <p 
-                            class="mt-n2 ml-5 "
-                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
+                            <p class="mt-n2 ml-5 "
+                                :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
                                 style="font-family: 'Montserrat', sans-serif; 
                                     font-weight: 400;
                                     font-style: normal;
@@ -149,189 +166,260 @@ export default defineComponent({
                         </button>
                     </RouterLink>
 
-                 
+
                     <v-spacer class=" hidden-sm-and-down ml-16 "> </v-spacer>
 
-                    <RouterLink custom v-slot="{ navigate }" to="/cart">
                         <v-badge size="x-small" class=" hidden-sm-and-down ml-16 " :model-value="itemsCount > 0"
                             :content="itemsCount" color="#facb0b">
-                            <button @click="navigate" class=" hidden-sm-and-down ">
-                                <v-icon
-                                    :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
+            
+                                <v-icon @click="drawerCart = !drawerCart"
+                                class=" hidden-sm-and-down "
+                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
                                     size="small" icon="mdi-briefcase-outline"></v-icon>
-                            </button>
+                       
                         </v-badge>
-                    </RouterLink>
-                    <RouterLink custom v-slot="{ navigate }" to="/cart">
                         <v-badge size="x-small" class=" hidden-md-and-up mr-5 " :model-value="itemsCount > 0"
                             :content="itemsCount" color="#facb0b">
-                            <button @click="navigate" class=" hidden-md-and-up ">
-                                <v-icon
-                                    :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
+                        
+                                <v-icon  class=" hidden-md-and-up " @click="drawerCart = !drawerCart"
+                            :style="{ color: isHovering || isHoveringColor ? '#1c1b1b' : 'white', flex: '1', textAlign: 'center' }"
                                     size="small" icon="mdi-briefcase-outline"></v-icon>
-                            </button>
+                       
                         </v-badge>
-                    </RouterLink>
+
                 </v-row>
             </v-container>
         </v-app-bar>
-        <v-navigation-drawer class="transitional-app-drawer" v-model="drawer" temporary color="#1c1b1b">
+        <v-navigation-drawer style="width: 300px;"  class="transitional-app-drawer" v-model="drawer" temporary color="#1c1b1b">
+<div class="mt-6">
 
-            <div class="mt-6">
-
-                <v-expansion-panels  >
-                    <v-expansion-panel :elevation="0" style="
+    <v-expansion-panels>
+        <v-expansion-panel :elevation="0" style="
 background-color: transparent;
 font-family: 'Montserrat', sans-serif;
 font-weight: 400;
 font-style: normal;
 font-size: 14px;
 color: white;">
-                        <v-expansion-panel-title :elevation="0">
-                            <p class="button-layout"> Productos </p>
-                        </v-expansion-panel-title>
-                        <v-divider class="mt-5" color="transparent"></v-divider>
-                        <v-expansion-panel-text>
-                            <RouterLink custom v-slot="{ navigate }" to="/product">
-                                <button style="
-    width: 210px;
-    align-items: center;
-    justify-content: center; 
-    height: 30px;
-    text-align: left;
-    " class="button-layout-text  " @click="navigate" block>
-                                    Todos
-                                </button>
-                            </RouterLink>
-                            <v-divider class="mt-2" color="white"></v-divider>
-                        </v-expansion-panel-text>
-                    </v-expansion-panel>
+            <v-expansion-panel-title :elevation="0">
+                <p class="button-layout"> Productos </p>
+            </v-expansion-panel-title>
+            
+         
+            <v-expansion-panel-text>
+                <div  class="list-item"  @click="clearCategory()" >
+                    <v-divider class="mt-5" color="transparent"></v-divider>
+                    <button 
+                    block>
+                        Ver Todos
+                    </button>
+                    <p  class="ml-6 mb-1"  
+                    :class="{ 'active-category': $route.name === 'product' }" 
+                    > 
+                 </p>
+                    <v-divider class="mt-5" color="white"></v-divider>
+                </div>
+
+
+                <div v-for="category in categories" :key="category.id" @click="selectCategory(category.id)"
+                    
+                    class="list-item">
+                    <v-divider class="mt-5" color="transparent"></v-divider>
+                            <button
+                 
+                    > {{ category.name }}   
+                </button>
+                <p  class="ml-6 mb-1"   :class="{ 'active-category': $route.name === 'category' && Number($route.params.categoryId) === category.id }"> 
+                 </p>
+                    <v-divider class="mt-5" color="white"></v-divider>
+                </div>
+
+            </v-expansion-panel-text>
+        </v-expansion-panel>
+
+        <v-expansion-panel :elevation="0" style="
+background-color: transparent;
+font-family: 'Montserrat', sans-serif;
+font-weight: 400;
+font-style: normal;
+font-size: 14px;
+color: white;">
+            <v-expansion-panel-title :elevation="0">
+                <p class="button-layout  "> Nosotros </p>
+            </v-expansion-panel-title>
+           
+            <v-expansion-panel-text>
+                <v-divider class="mt-4" color="transparent" ></v-divider>
+               <div  class="list-item"  >
+                  
+                    <RouterLink custom v-slot="{navigate}" to="/Our-History"    >
+                        <button 
+                        @click="navigate"
+                    block>
+                        Equipo Hugs
+                    </button>
+                    <p  class="ml-6 mb-1"  
+                    :class="{ 'active-category': $route.name === 'Our-History' }" 
+                    > 
+                 </p>
+                    </RouterLink>
+                  
+                    <v-divider class="mt-5" color="white"></v-divider>
+                </div>
+            </v-expansion-panel-text>
+
+            <v-expansion-panel-text>
+                <div  class="list-item"  >
+                  
+                  <RouterLink custom v-slot="{navigate}" to="/Product-Construction"    >
+                      <button 
+                      @click="navigate"
+                  block>
+                      Producto Hecho a mano
+                  </button>
+                  <p  class="ml-6 mb-1"  
+                  :class="{ 'active-category': $route.name === 'Product-Construction' }" 
+                  > 
+               </p>
+                  </RouterLink>
                 
-                    <v-expansion-panel :elevation="0" style="
+                  <v-divider class="mt-5" color="white"></v-divider>
+              </div>
+            </v-expansion-panel-text>
+
+        </v-expansion-panel>
+        <v-expansion-panel :elevation="0" style="
 background-color: transparent;
 font-family: 'Montserrat', sans-serif;
 font-weight: 400;
 font-style: normal;
 font-size: 14px;
 color: white;">
-                        <v-expansion-panel-title :elevation="0">
-                            <p class="button-layout  "> Nosotros </p>
-                        </v-expansion-panel-title>
+            <v-expansion-panel-title :elevation="0">
+                <p class="button-layout  "> Más información</p>
+            </v-expansion-panel-title>
+            <v-divider class="mt-4" color="transparent" ></v-divider>
+            <v-expansion-panel-text>
+                <div  class="list-item"  >
+                  <RouterLink custom v-slot="{navigate}" to="/account"    >
+                      <button 
+                      @click="navigate"
+                  block>
+                Contáctenos
+                  </button>
+                  <p  class="ml-6 mb-1"  
+                  :class="{ 'active-category': $route.name === 'account' }" 
+                  > 
+               </p>
+                  </RouterLink>
+                
+                  <v-divider class="mt-5" color="white"></v-divider>
+              </div>
+            </v-expansion-panel-text>
 
-                        <v-divider class="mt-5" color="transparent"></v-divider>
+            <v-expansion-panel-text>
+                <div  class="list-item"  >
+                  
+                  <RouterLink custom v-slot="{navigate}" to="/Delivery-Shipping"    >
+                      <button 
+                      @click="navigate"
+                  block>
+                      Envíos
+                  </button>
+                  <p  class="ml-6 mb-1"  
+                  :class="{ 'active-category': $route.name === 'Delivery-Shipping' }" 
+                  > 
+               </p>
+                  </RouterLink>
+                
+                  <v-divider class="mt-5" color="white"></v-divider>
+              </div>
+            </v-expansion-panel-text>
+            <v-expansion-panel-text>
+                <div  class="list-item"  >
+                  
+                  <RouterLink custom v-slot="{navigate}" to="/Return-Policy"    >
+                      <button 
+                      @click="navigate"
+                  block>
+                      Política de Devolución 
+                  </button>
+                  <p  class="ml-6 mb-1"  
+                  :class="{ 'active-category': $route.name === 'Return-Policy' }" 
+                  > 
+               </p>
+                  </RouterLink>
+                
+                  <v-divider class="mt-5" color="white"></v-divider>
+              </div>
+            </v-expansion-panel-text>
+            <v-expansion-panel-text>
+                <div  class="list-item"  >
+                  
+                  <RouterLink custom v-slot="{navigate}" to="/Frequent-Questions"    >
+                      <button 
+                      @click="navigate"
+                  block>
+                      Preguntas más frecuentes
+                  </button>
+                  <p  class="ml-6 mb-1"  
+                  :class="{ 'active-category': $route.name === 'Frequent-Questions' }" 
+                  > 
+               </p>
+                  </RouterLink>
+                
+                  <v-divider class="mt-5" color="white"></v-divider>
+              </div>
+            </v-expansion-panel-text>
+            <v-expansion-panel-text>
+                <div  class="list-item"  >
+                  
+                  <RouterLink custom v-slot="{navigate}" to="/Social-Compliance"    >
+                      <button 
+                      @click="navigate"
+                  block>
+                      Cumplimiento Social
+                  </button>
+                  <p  class="ml-6 mb-1"  
+                  :class="{ 'active-category': $route.name === 'Social-Compliance' }" 
+                  > 
+               </p>
+                  </RouterLink>
+                
+                  <v-divider class="mt-5" color="white"></v-divider>
+              </div>
+            </v-expansion-panel-text>
+           
+        </v-expansion-panel>
+    </v-expansion-panels>
 
-                        <v-expansion-panel-text>
-                            <RouterLink custom v-slot="{ navigate }" to="/account">
-                                <button style="
-    width: 210px;
-    align-items: center;
-    justify-content: center; 
-    height: 30px;
-    text-align: left;
-    " class="button-layout-text  " @click="navigate" block>
-                                    ¿Qué nos diferencia?
-                                </button>
-                            </RouterLink>
-                            <v-divider class="mt-2" color="white"></v-divider>
-                        </v-expansion-panel-text>
-
-                        <v-expansion-panel-text>
-                            <RouterLink custom v-slot="{ navigate }" to="/account">
-                                <button style="
-    width: 210px;
-    align-items: center;
-    justify-content: center; 
-    height: 30px;
-    text-align: left;
-    " class="button-layout-text  " @click="navigate" block>
-                                    Garantía
-                                </button>
-                            </RouterLink>
-                            <v-divider class="mt-2" color="white"></v-divider>
-                        </v-expansion-panel-text>
-
-                        <v-expansion-panel-text>
-                            <RouterLink custom v-slot="{ navigate }" to="/account">
-                                <button style="
-    width: 210px;
-    align-items: center;
-    justify-content: center; 
-    height: 30px;
-    text-align: left;
-    " class="button-layout-text  " @click="navigate" block>
-                                    Artesanía
-                                </button>
-                            </RouterLink>
-                            <v-divider class="mt-2" color="white"></v-divider>
-                        </v-expansion-panel-text>
-                        <v-expansion-panel-text>
-                            <RouterLink custom v-slot="{ navigate }" to="/account">
-                                <button style="
-    width: 210px;
-    align-items: center;
-    justify-content: center; 
-    height: 30px;
-    text-align: left;
-    " class="button-layout-text  " @click="navigate" block>
-                                    Blog
-                                </button>
-                            </RouterLink>
-                            <v-divider class="mt-2" color="white"></v-divider>
-                        </v-expansion-panel-text>
-                    </v-expansion-panel>
-                    <v-expansion-panel :elevation="0" style="
-background-color: transparent;
-font-family: 'Montserrat', sans-serif;
-font-weight: 400;
-font-style: normal;
-font-size: 14px;
-color: white;">
-                        <v-expansion-panel-title :elevation="0">
-                            <p class="button-layout  "> Contacto </p>
-                        </v-expansion-panel-title>
-
-                        <v-divider class="mt-5" color="transparent"></v-divider>
-
-                        <v-expansion-panel-text>
-                            <RouterLink custom v-slot="{ navigate }" to="/contact">
-                                <button style="
-    width: 210px;
-    align-items: center;
-    justify-content: center; 
-    height: 30px;
-    text-align: left;
-    " class="button-layout-text  " @click="navigate" block>
-                                    Sobre mi compra
-                                </button>
-                            </RouterLink>
-                            <v-divider class="mt-2" color="white"></v-divider>
-                        </v-expansion-panel-text>
-                        <v-expansion-panel-text>
-                            <RouterLink custom v-slot="{ navigate }" to="/contact">
-                                <button style="
-    width: 210px;
-    align-items: center;
-    justify-content: center; 
-    height: 30px;
-    text-align: left;
-    " class="button-layout-text  " @click="navigate" block>
-                                    Envíos
-                                </button>
-                            </RouterLink>
-                            <v-divider class="mt-2" color="white"></v-divider>
-                        </v-expansion-panel-text>
-                    </v-expansion-panel>
-                </v-expansion-panels>
-
-            </div>
-        </v-navigation-drawer>
-
+</div>
+</v-navigation-drawer>
+<v-navigation-drawer :elevation="10" style="background-color: white ;"  class="transitional-app-drawer   " v-model="drawerCart" temporary color="#1c1b1b"  width="300"  location="right" >
+    <v-container>
+        <v-row  >
+        <v-col :cols="12" :sm="12" :md="12" :lg="12" :xl="12" >
+          <ShoppingCart />    
+        </v-col>
+      </v-row>
+    </v-container>   
+      <summaryCart class="drawer-footer"   />
+ </v-navigation-drawer>
     </v-hover>
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto+Mono:wght@300;400&display=swap');
 
+.drawer-footer {
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.active-category {
+    background-color: #e0e0e0;
+    /* Otros estilos que desees aplicar */
+}
 
 .justify-center {
     justify-content: center;
@@ -361,10 +449,12 @@ color: white;">
 .transitional-app-bar {
     transition: background-color 0.4s ease-in-out;
 }
+
 .transitional-app-drawer {
     transition: transform 0.4s ease-in-out
 }
-.transitional-app{
+
+.transitional-app {
     transition: transform 0.4s ease-in-out
 }
 

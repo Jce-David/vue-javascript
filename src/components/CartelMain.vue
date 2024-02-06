@@ -10,9 +10,9 @@ export default {
 
 <template>
 
-  <v-container class="mt-16" >
+  <v-container  >
     <div  style="position: relative; height: 100vh; text-align: center; display: flex; align-items: center; justify-content: center;" >
-      <v-card class=" mt-n16  text-center" color="#FFFFFF00" :elevation="0" >
+      <v-card class="text-center" color="#FFFFFF00" :elevation="0" >
       <div style="max-width: 70vh;"  >
       <p style="  color: white; 
             font-family: 'Montserrat', sans-serif; 
@@ -25,17 +25,16 @@ export default {
             line-height: 1.2;
             " class="mb-2  text-center"
             
-            >Producto 100% Peruano
+            > 100% CUERO PERUANO
       </p>
       <p style="color: white; 
             font-family: 'Montserrat', sans-serif; 
             margin: 0; 
-            font-weight: 400;
+            font-weight: 500;
             font-style: normal;
             font-size: 0.8em;
-            letter-spacing: .1em;" class="  mx-10 text-center">Lorem Ipsum is simply dummy text
-        of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley
+            letter-spacing: .1em;" class="  mx-10 text-center">Utilizamos 100% de cuero local de la más alta calidad, 
+            asegurando así un producto excepcional que respalda nuestra tradición artesanal.
       </p>
     </div>
           <router-link v-slot="{ navigate }" custom to="/product">

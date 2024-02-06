@@ -1,33 +1,84 @@
 <script lang="ts">
-
+import { useProductsStore } from '@/stores/products';
+import { mapActions } from 'pinia';
+import { mapState } from 'pinia';
 export default {
-    data(){
-        return {
-            categories: [
-                {name: 'Oficina', id: 1, description: 'productos para Oficina' },
-                {name: 'Computador', id: 2, description: 'productos para computadora' }
-            ]
-        }
-    },
-    methods: {
-        selectCategory(categoryId: number){
-            this.$router.push({ name: 'category' , params: { categoryId} })
-        }
+  data() {
+    return {
+      categories: [
+      { name: 'Babuchas classic', id: 1, description: 'productos para u' },
+      { name: 'Babuchas botin ', id: 2, description: 'productos para Oficina' },
+      { name: 'slippers classic', id: 3, description: 'productos para computadora' },
+      { name: 'slippers classic border', id: 4, description: 'productos para w' },
+      ],
+      expandedCategory:  null as number | null,
     }
+  },
+  methods: {
+
+    
+    goToCategory(categoryId: number) {
+      this.$router.push({ name: 'category', params: { categoryId } })
+      this.expandedCategory = categoryId;
+    },
+
+    clearCategory() {
+      this.expandedCategory = null;
+      this.$router.push({
+        name: 'product',
+      })
+    },
+    ...mapActions(useProductsStore, ['orderByPrice', 'orderByPriceDesc'])
+  },
+  computed: {
+    ...mapState(useProductsStore, ['order']),
+  }
 }
 
 </script>
 
 <template>
-      <v-sheet rounded="lg">
-      <v-list rounded="lg">
-        <v-list-item v-for="category in categories" :key="category.id" link @click="selectCategory(category.id)" >
-        {{ category.name }}
-        </v-list-item>
+  <div style="border: 1px solid black; color: #1c1b1b;" >
 
-        <v-divider class="my-2"></v-divider>
+    <v-expansion-panels v-model="expandedCategory"   >
+      <v-expansion-panel :elevation="0"
+        style="background-color: transparent; font-family: 'Montserrat', sans-serif; font-weight: 400; font-style: normal; font-size: 14px; color: black;">
+        <v-expansion-panel-title :elevation="0">
+          <p class="button-layout"> Categorías </p>
+        </v-expansion-panel-title>
 
-        <v-list-item color="grey-lighten-4" link title="Refresh"></v-list-item>
-      </v-list>
-    </v-sheet>
+        <v-expansion-panel-text>
+          <div @click="clearCategory"
+           :class="{ 'active-category': $route.name === 'product' }" 
+           class="category-item ">
+            <button block> Ver Todos </button>    
+          </div>
+          <div link v-for="category in categories" :key="category.id" @click="goToCategory(category.id)"
+            :class="{ 'active-category': $route.name === 'category' && Number($route.params.categoryId) === category.id }"
+            class="category-item">
+            {{ category.name }}
+          </div>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
+
+  </div>
 </template>
+  
+<style >
+.category-item {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.3s;
+}
+
+.category-item:hover {
+  background-color: #e0e0e0;
+}
+
+.active-category {
+  background-color: #e0e0e0;
+  /* Otros estilos que desees aplicar */
+}
+</style>
+  

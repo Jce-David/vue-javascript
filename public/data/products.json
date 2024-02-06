@@ -1,11 +1,58 @@
 [
     {
-        "name": "Pantufla abrazos Oveja Marrón",
-        "price": 99.00,
+        "name": "Babuchas Hugs classic Habano ",
+        "price": 79.00,
         "id": 1,
+        "imageProduct": "/babuchas-classic/habano-bajo-1.png",
+        "imageProduct2": "/rosado-2-alto.png",
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",                                                                                                           
+            "39",
+            "41"
+        ],
+        "categoryId": 1
+    },
+    {
+        "name": "Babuchas Hugs classic Marron  ",
+        "price": 79.00,
+        "id": 2,
+        "imageProduct": "/babuchas-classic/marron-bajo-1.png",
+        "imageProduct2": "/rosado-2-alto.png",
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",                                                                                                           
+            "39",
+            "41"
+        ],
+        "categoryId": 1
+    },
+    {
+        "name": "Babuchas Hugs classic Negro ",
+        "price": 79.00,
+        "id": 3,
+        "imageProduct": "/babuchas-classic/negro-bajo-1.png",
+        "imageProduct2": "/rosado-2-alto.png",
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",                                                                                                           
+            "39",
+            "41"
+        ],
+        "categoryId": 1
+    },
+    {
+        "name": "Babuchas Hugs classic Marron alto",
+        "price": 149.00,
+        "id": 4,
         "imageProduct": "/productos/marron-alto-1.png",
         "imageProduct2": "/marron-2-chato.png",
-        
         "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
         "talla": [
             "36",
@@ -13,16 +60,15 @@
             "38",
             "39"
         ],
-        "categoryId": 1
+        "categoryId": 2
     },
+
     {
-        "name": "Pantufla abrazos alto oveja Beige",
-        "price": 119.00,
-        "id": 2,
+        "name": "Babuchas Hugs classic Beige Alto",
+        "price": 149.00,
+        "id": 5,
         "imageProduct": "/productos/beige-alto-1.png",
         "imageProduct2": "/marron-2-alto.png",
-
-      
         "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
         "talla": [
             "36",
@@ -34,12 +80,11 @@
         "categoryId": 2
     },
     {
-        "name": "Pantufla abrazos alto Habano",
-        "price": 119.00,
-        "id": 3,
+        "name": "Babuchas Hugs classic Habano alto",
+        "price": 149.00,
+        "id": 6,
         "imageProduct": "/productos/habano-alto-1.png",
         "imageProduct2": "/camel-2-alto.png",
-       
         "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
         "talla": [
             "36",
@@ -51,12 +96,11 @@
         "categoryId": 2
     },
     {
-        "name": "Pantufla abrazos alto Rosado ",
-        "price": 119.00,
-        "id": 4,
+        "name": "Babuchas Hugs classic Rosado alto",
+        "price": 149.00,
+        "id": 7,
         "imageProduct": "/productos/rosado-alto-1.png",
         "imageProduct2": "/rosado-2-alto.png",
-       
         "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
         "talla": [
             "36",
@@ -68,12 +112,11 @@
         "categoryId": 2
     },
     {
-        "name": "Pantufla abrazos Oveja Plomo",
-        "price": 99.00,
-        "id": 5,
+        "name": "Babuchas Hugs classic Gris alto",
+        "price": 149.00,
+        "id": 8,
         "imageProduct": "/productos/plomo-alto-1.png",
         "imageProduct2": "/marron-2-chato.png",
-        
         "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
         "talla": [
             "36",
@@ -81,16 +124,14 @@
             "38",
             "39"
         ],
-        "categoryId": 1
+        "categoryId": 2
     },
     {
-        "name": "Pantufla abrazos alto oveja Verde",
-        "price": 119.00,
-        "id": 6,
+        "name": "Babuchas Hugs classic Verde alto",
+        "price": 149.00,
+        "id": 9,
         "imageProduct": "/productos/verde-alto-1.png",
         "imageProduct2": "/marron-2-alto.png",
-
-      
         "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
         "talla": [
             "36",
@@ -102,12 +143,11 @@
         "categoryId": 2
     },
     {
-        "name": "Pantufla abrazos alto Negro ",
-        "price": 119.00,
-        "id": 7,
+        "name": "Babuchas Hugs classic Negro alto",
+        "price": 149.00,
+        "id": 10,
         "imageProduct": "/productos/negro-alto-1.png",
         "imageProduct2": "/camel-2-alto.png",
-       
         "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
         "talla": [
             "36",
@@ -119,12 +159,11 @@
         "categoryId": 2
     },
     {
-        "name": "Pantufla abrazos alto Lila",
-        "price": 119.00,
-        "id": 8,
+        "name": "Babuchas Hugs classic Lila alto",
+        "price": 149.00,
+        "id": 11,
         "imageProduct": "/productos/lila-alto-1.png",
         "imageProduct2": "/rosado-2-alto.png",
-       
         "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
         "talla": [
             "36",
@@ -136,12 +175,11 @@
         "categoryId": 2
     },
     {
-        "name": "Pantufla abrazos alto Celeste ",
-        "price": 119.00,
-        "id": 9,
-        "imageProduct": "/productos/azulejo-alto-1.png",
+        "name": "Babuchas Hugs classic Celeste alto",
+        "price": 149.00,
+        "id": 12,
+        "imageProduct": "/productos/celeste-alto-1.png",
         "imageProduct2": "/rosado-2-alto.png",
-       
         "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
         "talla": [
             "36",
@@ -151,5 +189,102 @@
             "41"
         ],
         "categoryId": 2
+    },
+    {
+        "name": "Pantufla Media Luna habano ",
+        "price": 99.00,
+        "id": 13,
+        "imageProduct": "/slippers/habano-slippers.png",
+        "imageProduct2": "/rosado-2-alto.png",
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 3
+    },
+    {
+        "name": "Pantufla Media Luna Marrón",
+        "price": 99.00,
+        "id": 14,
+        "imageProduct": "/slippers/marron-slippers.png",
+        "imageProduct2": "/rosado-2-alto.png",
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 3
+    },
+    {
+        "name": "Pantufla Media Luna Negro ",
+        "price": 99.00,
+        "id": 15,
+        "imageProduct": "/slippers/negro-slippers.png",
+        "imageProduct2": "/rosado-2-alto.png",
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 3
+    },
+    {
+        "name": "Pantufla Media Luna Habano con Borde de Alpaca",
+        "price": 119.00,
+        "id": 16,
+        "imageProduct": "/slippers-border/slippers-habano-borde.png",
+        "imageProduct2": "/rosado-2-alto.png",
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 4
+    },
+    {
+        "name": "Pantufla Media Luna Marrón con borde de Alpaca ",
+        "price": 119.00,
+        "id": 17,
+        "imageProduct": "/slippers-border/slippers-marron-borde.png",
+        "imageProduct2": "/rosado-2-alto.png",
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+        ],
+        "categoryId": 4
+    },
+    {
+        "name": "Pantufla Media Luna Negro con Borde de Alpaca ",
+        "price": 119.00,
+        "id": 18,
+        "imageProduct": "/slippers-border/slippers-negro-borde.png",
+        "imageProduct2": "/rosado-2-alto.png",
+        "description": "Made from a combination of real shearling and Horweens Chromexcel and featuring.",
+        "talla": [
+            "36",
+            "37",
+            "38",                                                                                                           
+            "39",
+            "41"
+        ],
+        "categoryId": 4
     }
+         
 ]

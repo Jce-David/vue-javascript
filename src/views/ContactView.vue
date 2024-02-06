@@ -18,9 +18,11 @@ export default {
 
 <template>
     <TopBarEjemplo />
-    <v-main >
-       <SobreMiCompra />
-    </v-main>
+<v-main>
+  <SobreMiCompra />
+</v-main>
+
+ 
 
   <FooterMain/>
 

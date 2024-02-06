@@ -21,9 +21,9 @@ export default {
 
 <template>
 <TopBarEjemplo  />
-<v-main>
+
     <NosotrosMain/>
-</v-main>
+
 
   <FooterMain/>
 
