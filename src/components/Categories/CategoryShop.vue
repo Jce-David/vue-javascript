@@ -38,17 +38,12 @@ export default {
 </script>
 
 <template>
+ 
   <div style="border: 1px solid black; color: #1c1b1b;" >
 
-    <v-expansion-panels v-model="expandedCategory"   >
-      <v-expansion-panel :elevation="0"
-        style="background-color: transparent; font-family: 'Montserrat', sans-serif; font-weight: 400; font-style: normal; font-size: 14px; color: black;">
-        <v-expansion-panel-title :elevation="0">
-          <p class="button-layout"> Categorías </p>
-        </v-expansion-panel-title>
-
-        <v-expansion-panel-text>
-          <div @click="clearCategory"
+    <p > Categorías </p>
+      <div>
+        <div @click="clearCategory"
            :class="{ 'active-category': $route.name === 'product' }" 
            class="category-item ">
             <button block> Ver Todos </button>    
@@ -58,9 +53,8 @@ export default {
             class="category-item">
             {{ category.name }}
           </div>
-        </v-expansion-panel-text>
-      </v-expansion-panel>
-    </v-expansion-panels>
+
+        </div>
 
   </div>
 </template>

@@ -19,10 +19,9 @@ export default defineComponent({
             drawer: false,
             drawerCart: false,
             categories: [
-      { name: 'Babuchas classic', id: 1, description: 'productos para u' },
-      { name: 'Babuchas botin ', id: 2, description: 'productos para Oficina' },
-      { name: 'slippers classic', id: 3, description: 'productos para computadora' },
-      { name: 'slippers classic border', id: 4, description: 'productos para w' },
+     { name: 'Babuchas', id: 1, description: 'productos para u' },
+      { name: 'Media Luna', id: 2, description: 'productos para u' },
+     
       ]
 
         }
@@ -114,7 +113,7 @@ export default defineComponent({
                         </button>
                     </RouterLink>
 
-                    <RouterLink custom v-slot="{ navigate }" to="/contact">
+                    <RouterLink custom v-slot="{ navigate }" to="/account">
                         <button style=" 
                                 padding: 0;
                                 margin:  10px;

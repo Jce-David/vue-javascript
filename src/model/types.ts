@@ -9,7 +9,14 @@ export interface Product {
     imageDemostration2: string;
     talla: string [];
     categoryId: number;
+    selectedColorIndex: number;
+    colors: string [];
+    images: string [];
+    colorIndex: number;
 }
+export interface ProductColorState {
+    selectedColorIndex: { [productId: number]: number };
+  }
 export interface CartDetail {
     product: Product;
     quantity: number;

@@ -4,7 +4,7 @@ import type { CartDetail } from '../../model/types';
 import type { PropType } from 'vue';
 import { mapActions } from 'pinia';
 import { useCartStore } from '../../stores/cart';
-
+import { useImageIndexStore } from '@/stores/Image';
 export default {
     props: {
         detail: {
@@ -16,13 +16,23 @@ export default {
         ...mapActions(useCartStore, {
             incrementQuantity: 'increment',
             decrementQuantity: 'decrement',
-            deleteProduct: 'deleteProduct'
+            deleteProduct: 'deleteProduct',
         }),
+        ...mapActions( useImageIndexStore, ['setProductColor'] )
     },
     computed: {
+        selectedColorIndex() {
+      return useImageIndexStore().setProductColor;
+    },
+        imageShopCart() {
+            console.log(this.detail.product.images);
+const selectedProductId = this.detail.product.id; // Obtener el ID del producto seleccionado
+const selectedColorIndex = this.selectedColorIndex[selectedProductId] ?? 0; // Obtener el índice de color seleccionado para el producto, o 0 si es null o undefined
 
+return this.detail.product.images[selectedColorIndex];
+        },
         productImageUrl() {
-            return this.detail.product.imageProduct ?? "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+            return this.detail.product.images ?? "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
         },
         subtotal() {
             return this.detail.product.price * this.detail.quantity
@@ -33,14 +43,14 @@ export default {
 </script>                           
     
 <template  >
-    <div class="mt-6" >
+    <div class="mt-6 " >
  <div class=" ml-3 " style="display: flex; justify-content: space-between; align-items: center;">
 
 </div>
     <v-row>  
         <v-col  :cols="5" :xs="5" :sm="5" :md="5" :xl="5">
          
-                <v-img   :src="productImageUrl" height="100px" />
+                <v-img   :src="imageShopCart" height="100px" />
       
         </v-col>
         <v-col  :cols="7" :xs="7" :sm="7" :md="7" :xl="7">
@@ -48,8 +58,7 @@ export default {
                 <p  class="  text-resumen my-2  "> {{ detail.product.name }}</p>
            
             <p class=" text-resumen "> Talla: {{ detail.product.talla }}</p>
-      
-                <p class="  text-resumen ">Precio: S/. {{ detail.product.price }}</p>
+              <p class="  text-resumen ">Precio: S/. {{ detail.product.price }}</p>
        
                     <p class=" text-resumen ">Cantidad: </p>
           
@@ -63,7 +72,7 @@ export default {
               
                     <button  
                     class=" mt-4 text-resumen"
-                     @click="deleteProduct(detail.product.id,  detail.product.talla)"> 
+                     @click="deleteProduct(detail.product.id , detail.product.talla)"> 
                      Eliminar </button>
        
             </div> 

@@ -3,6 +3,7 @@
 import TopBarEjemplo from '@/components/TopBarEjemplo.vue';
 import FooterMain from '@/components/FooterMain.vue'
 import NosotrosMain from '@/components/Nosotros/NosotrosMain.vue'
+import ContactUs from '@/components/Contact/ContactUs.vue';
 
 
 export default {
@@ -12,18 +13,20 @@ export default {
     next();
   },
     components: {
-      FooterMain,
+    FooterMain,
     TopBarEjemplo,
-    NosotrosMain
+    ContactUs
 }
 }
 </script>
 
 <template>
 <TopBarEjemplo  />
+<v-main>
+  <ContactUs/>
 
-    <NosotrosMain/>
 
+</v-main>
 
   <FooterMain/>
 

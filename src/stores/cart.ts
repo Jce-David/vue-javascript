@@ -6,7 +6,7 @@ import { useLocalStorage } from '@vueuse/core'
 export const useCartStore = defineStore('cart', {
   state: () => ({
     detailsCart: useLocalStorage<CartDetail[]>('cartDetails', []),
-
+    currentImageIndex: 0,
   }),
   getters: {
     cartItemsCount: (state) => {
@@ -46,13 +46,15 @@ export const useCartStore = defineStore('cart', {
       if (!product.talla) {
         return  alert("Por favor, seleccione una talla");     
       }
-      const detailFound = this.detailsCart.find(detail=> detail.product.id === product.id && detail.product.talla === product.talla);
+      const detailFound = this.detailsCart.find(detail=> detail.product.id === product.id && detail.product.talla === product.talla  && detail.product.images === product.images   );
       if(detailFound){
         detailFound.quantity += 1;
         detailFound.totalPriceProduct += detailFound.product.price     
       } else {
+        const imageUrl = product.images[this.currentImageIndex];
         this.detailsCart.push({
           quantity:1,
+          images: imageUrl ,
           totalPriceProduct: product.price,
           product,
           talla: product.talla

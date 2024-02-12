@@ -8,10 +8,10 @@ import { mapState } from 'pinia';
 import { useProductsStore } from '../../stores/products';
 import ShoppingCart from '@/components/Cart/ShoppingCart.vue';
 import summaryCart from '@/components/Cart/summaryCart.vue';
-
+import { useImageIndexStore } from '@/stores/Image';
+import type { ProductColorState } from '@/model/types'; 
 
 export default {
-
   props: {
     detail: {
       type: Object as PropType<CartDetail>,
@@ -21,23 +21,30 @@ export default {
   data() {
     return {
       selectedTalla: [],
+      stateColor: useImageIndexStore() 
     };
   },
   computed: {
     ...mapState(useProductsStore, ['products']),
-
+    selectedColorIndex(){
+      return  this.stateColor.selectedColorIndex
+    },
     detailsProduct() {
       const cartStore = useUniqueStore();
       return cartStore.detailsProduct;
     },
     imageShopCart() {
-      return this.detail.product.imageProduct;
+      console.log(this.detail.product.images);
+const selectedProductId = this.detail.product.id; // Obtener el ID del producto seleccionado
+const selectedColorIndex = this.selectedColorIndex[selectedProductId] ?? 0; // Obtener el índice de color seleccionado para el producto, o 0 si es null o undefined
+
+return this.detail.product.images[selectedColorIndex];
     },
-    imageShopCart2() {
+    imageShopCart2() {                                
       return this.detail.product.imageProduct2;
     },
     imageShopCart3() {
-      return this.detail.product.imageProduct3;
+      return this.detail.product.imageProduct3;   
     },
     imageShopCart4() {
       return this.detail.product.imageDemostration;
@@ -48,11 +55,14 @@ export default {
   },
   methods: {
     onAddButtonClick() {
-    
       const cartStore = useCartStore();
-      return cartStore.onAddProduct({
-        ...this.detail.product,
-        talla: this.selectedTalla[this.detail.product.id],
+  const colorStore = useImageIndexStore();  
+  const selectedProductId = this.detail.product.id;
+const selectedColorIndex = colorStore.selectedColorIndex[selectedProductId];
+  return cartStore.onAddProduct({
+    ...this.detail.product,
+    talla: this.selectedTalla[this.detail.product.id],
+    colorIndex: selectedColorIndex,
       });
     },
   },
@@ -63,13 +73,30 @@ export default {
   <v-row class=" mx-4 my-8 ">
     <v-col :cols="12" :xs="12" :sm="12" :md="1" :lg="1" :xl="1"></v-col>
     <v-col :cols="12" :xs="12" :sm="12" :md="5" :lg="6" :xl="6">
-      <v-img :src="imageShopCart"  class=" hidden-sm-and-down  mb-4" height="420px" />
+      <div 
+      class=" mt-7 "
+      style="
+       
+          background-color: rgb(228, 228, 228);
+          max-width: 60vw ;
+          max-height: 56vh;
+        "
+      >
+        <v-img :src="imageShopCart"  class=" hidden-sm-and-down  mb-4" height="420px" />
+
+      </div>
    
 
       <div>
 
       </div>
-      <v-img :src="imageShopCart"  style=" width: 100%;  background-color: transparent;"   class=" hidden-md-and-up  mb-4" height="280px" />
+      <div  style="
+       background-color: rgb(228, 228, 228);
+
+       max-height: 56vh;" >
+              <v-img :src="imageShopCart"  style=" width: 100%;  background-color: transparent;"   class=" hidden-md-and-up  mb-4" height="280px" />
+
+      </div>
   
 
     </v-col>

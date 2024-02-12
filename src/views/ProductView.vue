@@ -34,7 +34,7 @@ export default {
     ProductList,
     FooterMain,
     TopBarEjemplo,
-    CategoryShop
+
   },
 
 
@@ -45,23 +45,11 @@ export default {
   <TopBarEjemplo />
   <v-main class="mt-2" style="background-color: #f2f2f2;">
     <v-container>
-      <div class="  mt-2" style="display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;">
-        <div style="max-width: 100vh;" class="div-center">
-          <h1 class=" Heading ">Nuestros Productos</h1>
-        </div>                                                                          
-      </div>
+
     </v-container>
     <v-container>
       <v-row> 
-    <v-col :cols="12" :sm="12" :md="12" :lg="2" :xl="2" >
-      <CategoryShop />
-    </v-col>
-    <v-col :cols="12" :sm="12" :md="12" :lg="10" :xl="10" >
       <ProductList />
-    </v-col>
   </v-row>
     </v-container>
  

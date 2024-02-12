@@ -35,12 +35,12 @@ export default {
   border: 1px solid #BDBDBD;
   border-radius: 0px;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
   transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Agrega transición para sombra al hacer clic */
 }
 .text-medium {
     background-color: transparent;
-            font-family: 'Montserrat', sans-serif;
+            font-family: Montserrat, sans-serif;
             font-weight: 400;
             font-style: normal;
             font-size: 11px;
